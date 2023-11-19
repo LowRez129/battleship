@@ -7,7 +7,7 @@ function gameboardFactory (row, column) {
         for (let num = 0; num < x; num++) {
             const array = [];
             for (let dgt = 0; dgt < y; dgt++) {
-                array.push(dgt);
+                array.push(null);
             };
             
             makeboard.push(array);
@@ -15,6 +15,10 @@ function gameboardFactory (row, column) {
 
         return makeboard;
     }
+
+    function placeShip () {
+
+    };
 
     return {board};
 }
