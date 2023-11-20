@@ -1,25 +1,23 @@
 import { shipFactory } from "./shipfactory";
 import { gameboardFactory } from "./gameboardFactory";
 
-test ('ship with health: x', () => {
-    const destroyer = shipFactory(1);
-    destroyer.healthHit();
-    expect(destroyer.getHealth()).toEqual(0);
+test ('object', () => {
+    const board = gameboardFactory(5, 5);
+    board.makeShip('destroyer', 2, [0, 0], true);
+    board.receiveAttack([0, 1]);
+    console.log(board.boardGet());
+    expect(board.boardGet()[0][0]).toEqual('destroyer');
 });
 
-test ('ship with dead_status: x', () => {
-    const destroyer = shipFactory(0);
-    expect(destroyer.isSunk()).toEqual(true);
-});
+test ('Check board for ships', () => {
+    const board = gameboardFactory(5, 5);
+    board.makeShip('destroyer', 2, [0, 0], true);
+    const ship = board.shipGet()[0];
+    board.receiveAttack([0, 1]);
+    board.receiveAttack([0, 0]);
+    console.log(board.boardGet());
 
-test ('ship with position: [x]', () => {
-    const destroyer = shipFactory(3, [0, 0]);
-    const destroyer_two = shipFactory(2, [0, 0], true)
-    expect(destroyer.position).toEqual([[0, 0], [1, 0], [2, 0]]);
-    expect(destroyer_two.position).toEqual([[0, 0], [0, 1]]);
-})
-
-test ('object with board: [x]', () => {
-    const board = gameboardFactory(2, 3);
-    expect(board.board[1]).toEqual([null, null, null]);
-});
+    expect(ship.isSunk()).toEqual(true);
+    expect(ship.getHealth()).toEqual(0);
+    expect(ship.name).toEqual('destroyer');
+}); 

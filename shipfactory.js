@@ -1,8 +1,8 @@
-function shipFactory (value, start = [0, 0], vertical) {
-    const length = value;
+function shipFactory (value, length, start = [0, 0], vertical) {
+    const name = value;
     const position = positionCreate(start, vertical);
-    let health = value;
-    let dead_status = (value != 0) ? false : true;
+    let health = length;
+    let dead_status = (length != 0) ? false : true;
    
     function getHealth() {return health};
     function isSunk() {return dead_status};
@@ -31,7 +31,7 @@ function shipFactory (value, start = [0, 0], vertical) {
         return array;
     }
 
-    return {getHealth, healthHit, isSunk, position};
+    return {name, position, getHealth, healthHit, isSunk};
 };
 
 export {shipFactory};
