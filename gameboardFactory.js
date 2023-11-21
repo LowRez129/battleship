@@ -1,4 +1,4 @@
-import { shipFactory } from "./shipfactory";
+import { shipFactory } from "./shipfactory.js";
 
 function gameboardFactory (row, column) {
     const board = makeBoard(row, column);
@@ -22,7 +22,6 @@ function gameboardFactory (row, column) {
     }
 
     function placeShip (name, placement) {
-        //if (placement[0][1] != false) {return};
         for (let i = 0; i < placement.length; i++) {
             const x = placement[i][0];
             const y = placement[i][1];
@@ -53,7 +52,7 @@ function gameboardFactory (row, column) {
             const y = ship_position[1];
             const placement = (board[x] == undefined) ? null : board[x][y];
             
-            if (placement != false) {return "Invalid"};
+            if (placement != false) {return true};
         }
         placeShip(ship.name, ship.position);
         ship_array.push(ship);
@@ -62,7 +61,7 @@ function gameboardFactory (row, column) {
 
     function shipGet () {return ship_array};
 
-    return {boardGet, placeShip, receiveAttack, makeShip, shipGet};
+    return {receiveAttack, makeShip, boardGet, shipGet};
 }
 
 export {gameboardFactory};

@@ -11,7 +11,7 @@ test ('Check board for ships', () => {
 
     console.log(board.boardGet());
 
-    expect(test).toEqual('Invalid');
+    expect(test).toEqual(true);
     expect(ship.isSunk()).toEqual(true);
     expect(ship.name).toEqual('destroyer');
 }); 
