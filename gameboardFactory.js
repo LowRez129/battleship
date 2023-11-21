@@ -47,8 +47,17 @@ function gameboardFactory (row, column) {
 
     function makeShip (value, length, start, vertical) {
         const ship = shipFactory(value, length, start, vertical);
+        for (let i = 0; i < ship.position.length; i++) {
+            const ship_position = ship.position[i]
+            const x = ship_position[0];
+            const y = ship_position[1];
+            const placement = board[x][y];
+            
+            if (placement != false) {return "Invalid"};
+        }
         placeShip(ship.name, ship.position);
         ship_array.push(ship);
+        return ship_array[ship_array.length - 1].position;
     }
 
     function shipGet () {return ship_array};

@@ -1,4 +1,4 @@
-function shipFactory (value, length, start = [0, 0], vertical) {
+function shipFactory (value, length, start, vertical) {
     const name = value;
     const position = positionCreate(start, vertical);
     let health = length;
