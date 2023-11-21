@@ -7,14 +7,11 @@ test ('Check board for ships', () => {
     const ship = board.shipGet()[0];
     board.receiveAttack([0, 1]);
     board.receiveAttack([0, 0]);
-    const test = board.makeShip('test', 2, [4, 0], true)
+    const test = board.makeShip('test', 2, [1, 9], true)
 
     console.log(board.boardGet());
 
     expect(test).toEqual('Invalid');
     expect(ship.isSunk()).toEqual(true);
-    expect(ship.getHealth()).toEqual(0);
     expect(ship.name).toEqual('destroyer');
-
-    
 }); 

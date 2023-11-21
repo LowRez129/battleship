@@ -20,12 +20,8 @@ function shipFactory (value, length, start, vertical) {
         const y = start[1];
         
         for (let i = 0; i < length; i++) {
-            if (vertical == true) {
-                array.push([x, (y + i)]);
-            }
-            else {
-                array.push([(x + i), y])
-            }
+            if (vertical == true) {array.push([x, (y + i)])}
+            else {array.push([(x + i), y])};
         }
 
         return array;
