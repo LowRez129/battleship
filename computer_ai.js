@@ -4,6 +4,7 @@ function initialize_computer_AI (row, column) {
     const computer = gameboardFactory(row, column);
     const ships = ['carrier_ai', 'battleship_ai', 'cruiser', 'submarine', 'destroyer'];
     const length = [5, 4, 3, 3, 2];
+
     for (let index = 0; index < ships.length; index++) {
         let invalid = true;
         while (invalid == true) {
@@ -11,9 +12,11 @@ function initialize_computer_AI (row, column) {
         }
     }
 
+    function receiveAttack (coordinate) { computer.receiveAttack(coordinate) };
+    function giveAttack () {return getRandomCoordinate(row, column) };
     function getComputer () {return computer}
 
-    return {getComputer};
+    return {getComputer, receiveAttack, giveAttack};
 }
 
 function getRandomInt(max) { return Math.floor(Math.random() * max) };
