@@ -34,6 +34,8 @@ function gameboardFactory (row, column) {
         const y = coordinate[1];
         const position_value = board[x][y];
 
+        if (position_value == true) {return false};
+
         for (let i = 0; i < ship_array.length; i++) {
             const ship = ship_array[i];
             if (ship.name == position_value) {
@@ -41,7 +43,7 @@ function gameboardFactory (row, column) {
             };
         } 
 
-        if (position_value != true) {board[x][y] = true};
+        if (position_value != true) {return board[x][y] = true};
     }
 
     function makeShip (value, length, start, vertical) {

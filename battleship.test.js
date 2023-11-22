@@ -1,5 +1,5 @@
-import { shipFactory } from "./shipfactory";
 import { gameboardFactory } from "./gameboardFactory";
+import { initialize_computer_AI } from "./computer_ai";
 
 test ('Check board for ships', () => {
     const board = gameboardFactory(5, 5);
@@ -9,7 +9,7 @@ test ('Check board for ships', () => {
     board.receiveAttack([0, 0]);
     const test = board.makeShip('test', 2, [1, 9], true)
 
-    console.log(board.boardGet());
+    //console.log(board.boardGet());
 
     expect(test).toEqual(true);
     expect(ship.isSunk()).toEqual(true);
