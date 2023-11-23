@@ -5,5 +5,5 @@ test('computer get board', () => {
     const board = computer.getComputer().boardGet();
     //computer.receiveAttack([0, 0]);
     console.log(board)
-    expect(computer.receiveAttack([0, 0])).toEqual();
+    expect(computer.receiveAttack([0, 1])).toEqual(true);
 })

@@ -4,11 +4,12 @@
   "description": "",
   "type": "module",
   "main": "index.js",
+  "private": "true",
   "scripts": {
     "test": "jest --watch"
   },
   "keywords": [],
-  "author": "",
+  "author": "LowRez129",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.23.3",
@@ -17,5 +18,8 @@
     "jest": "^29.7.0",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }
