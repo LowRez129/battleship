@@ -11,6 +11,9 @@ const plugins = [
     }),
 ];
 const devtool = 'inline-source-map';
+const devServer = {
+    static: './dist',
+};
 const output = {
     filename: '[name].bundle.js',
     path: resolve('./dist'),
@@ -24,5 +27,8 @@ const module = {
         },
     ],
 };
+const optimization = {
+    optimization: 'single',
+};
 
-export default {mode, entry, plugins, devtool, output, module};
+export default {mode, entry, plugins, devtool, devServer, output, module};
