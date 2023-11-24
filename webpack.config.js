@@ -1,9 +1,28 @@
-import { resolve } from 'path';
+import {resolve} from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-const entry = './src/battleship.js';
+const mode = 'development';
+const entry = {
+    battleship: './src/battleship.js'
+};
+const plugins = [
+    new HtmlWebpackPlugin({
+        title: 'Battleship',
+    }),
+];
+const devtool = 'inline-source-map';
 const output = {
-    filename: 'battleship.bundle.js',
+    filename: '[name].bundle.js',
     path: resolve('./dist'),
-}
+    clean: true,
+};
+const module = {
+    rules: [
+        {
+            test: /\.css$/i,
+            use: ['style-loader', 'css-loader'],
+        },
+    ],
+};
 
-export default {entry, output};
+export default {mode, entry, plugins, devtool, output, module};
