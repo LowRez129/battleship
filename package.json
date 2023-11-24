@@ -7,7 +7,7 @@
   "private": "true",
   "scripts": {
     "test": "jest --watch",
-    "build": "webpack --watch",
+    "build": "webpack",
     "start": "webpack serve --open"
   },
   "keywords": [],
