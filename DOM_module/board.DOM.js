@@ -1,7 +1,7 @@
-import './style.css';
+import './board.css';
 
 function showBoard (row, column) {
-    const body = document.querySelector("body");
+    const main = document.querySelector("main");
     const div = document.createElement("div");
     div.classList.add("board-container");
     div.style.display = "grid";
@@ -21,7 +21,7 @@ function showBoard (row, column) {
         div.append(row);
     }
 
-    body.append(div);
+    main.append(div);
 }
 
 export {showBoard};
