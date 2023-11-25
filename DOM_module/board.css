@@ -1,3 +1,16 @@
-.test {
-    color: red;
+:root {
+    --grid-size: 10;
+    --grid-area: 50px;
+}
+
+.grid {
+    background-color: black;
+}
+
+.board-container {
+    display: grid;
+    grid-template-rows: repeat(var(--grid-size), var(--grid-area));
+    grid-template-columns: repeat(var(--grid-size), var(--grid-area));
+    justify-content: center;
+    gap: 1px;
 }

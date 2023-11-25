@@ -3,15 +3,11 @@
     padding: 0;
 }
 
-html {
-    height: 100vh;
-}
-
 body {
     background-color: aqua;
     display: grid;
-    grid-template-rows: repeat(3, auto);
-    height: 100%;
+    grid-template-rows: repeat(3, 1fr);
+    height: 100vh;
 }
 
 header {
@@ -19,7 +15,6 @@ header {
 }
 
 main {
-    padding: 1%;
     background-color: yellow;
 }
 
