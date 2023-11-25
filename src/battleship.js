@@ -10,7 +10,6 @@ const body = document.querySelector("body");
 const header = document.createElement("header");
 const main = document.createElement("main");
 const footer = document.createElement("footer");
-//header.textContent = "wtf";
 body.append(header, main, footer);
 showBoard(size, size);
 
