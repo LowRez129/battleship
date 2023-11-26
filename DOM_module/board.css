@@ -14,3 +14,16 @@
     justify-content: center;
     gap: 1px;
 }
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.orient-button {
+    background-color: green;
+    height: 5vh;
+    width: 10%;
+    align-self: center;
+}

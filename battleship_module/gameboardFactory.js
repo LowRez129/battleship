@@ -58,7 +58,7 @@ function gameboardFactory (row, column) {
         }
         placeShip(ship.name, ship.position);
         ship_array.push(ship);
-        return true;
+        return ship_array[ship_array.length - 1].position;
     }
 
     function shipGet () {return ship_array};
