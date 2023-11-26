@@ -1,26 +1,11 @@
 import { shipFactory } from "./shipfactory.js";
+import makeBoard from "./makeBoard.js";
 
 function gameboardFactory (row, column) {
     const board = makeBoard(row, column);
     const ship_array = [];
 
     function boardGet () {return board};
-    
-    function makeBoard (x, y) {
-        const makeboard = [];
-
-        for (let num = 0; num < x; num++) {
-            const array = [];
-            for (let dgt = 0; dgt < y; dgt++) {
-                array.push(false);
-            };
-            
-            makeboard.push(array);
-        };
-
-        return makeboard;
-    }
-
     function placeShip (name, placement) {
         for (let i = 0; i < placement.length; i++) {
             const x = placement[i][0];
