@@ -10,14 +10,11 @@ body {
     height: 100vh;
 }
 
-header {
-    background-color: green;
+header,
+footer {
+    background-color: blue;
 }
 
 main {
-    background-color: yellow;
-}
-
-footer {
-    background-color: green;
+    background-color: white;
 }

@@ -1,6 +1,6 @@
 :root {
     --grid-size: 10;
-    --grid-area: 50px;
+    --grid-area: 8vh;
 }
 
 .grid {
