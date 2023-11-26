@@ -10,5 +10,6 @@ test ('Check board for ships', () => {
     computer.receiveAttack([0, 0]);
     console.log(player.boardGet());
     console.log(computer.getComputer().boardGet());
-
+    
+    expect(player.makeShip('test', 1, [0, 4])).toEqual(true);
 }); 

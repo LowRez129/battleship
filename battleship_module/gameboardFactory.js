@@ -54,11 +54,11 @@ function gameboardFactory (row, column) {
             const y = ship_position[1];
             const placement = (board[x] == undefined) ? null : board[x][y];
             
-            if (placement != false) {return true};
+            if (placement != false) {return false};
         }
         placeShip(ship.name, ship.position);
         ship_array.push(ship);
-        return ship_array[ship_array.length - 1].position;
+        return true;
     }
 
     function shipGet () {return ship_array};
