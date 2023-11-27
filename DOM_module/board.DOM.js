@@ -7,11 +7,17 @@ function showBoard (row, column) {
     const player = gameboardFactory(row, column);
     const main = document.querySelector("main");
     const div = document.createElement("div");
+    const button = orientButton();
     div.classList.add("board-container");
     
     const dock = [["carrier", 5], ["battleship", 4], ["submarine", 3], ["destroyer", 2]];
     let index = 0;
     let get_dock = dock[index];
+    let orientation = false;
+
+    button.addEventListener('click', () => {
+            orientation = (orientation == false) ? true : false;    
+    });
 
     for (let x = 0; x < (row); x++) {
         for (let y = 0; y < column; y++) {
@@ -23,7 +29,8 @@ function showBoard (row, column) {
             grid.addEventListener('mouseleave', () => {
                 if (index == dock.length) {return};
                 for (let int = 0; int < get_dock[1]; int++) {
-                    const node = document.getElementById(`${x + int}-${y}`);
+                    const horizontal = (orientation == false) ? `${x + int}-${y}` : `${x}-${y + int}`;
+                    const node = document.getElementById(horizontal);
                     if (node == null) { return };
                     if (node.getAttribute('taken') != "false") {return};
                     node.style.backgroundColor = "black";
@@ -32,7 +39,8 @@ function showBoard (row, column) {
             grid.addEventListener('mouseenter', () => {
                 if (index == dock.length) {return};
                 for (let int = 0; int < get_dock[1]; int++) {
-                    const node = document.getElementById(`${x + int}-${y}`);
+                    const horizontal = (orientation == false) ? `${x + int}-${y}` : `${x}-${y + int}`;
+                    const node = document.getElementById(horizontal);
                     if (node == null) { return };                 
                     if (node.getAttribute('taken') != "false") {return};      
                     node.style.backgroundColor = "red";
@@ -40,7 +48,7 @@ function showBoard (row, column) {
             })
             grid.addEventListener('click', () => {
                 if (grid.getAttribute('taken') != "false" || index == (dock.length)) {return};
-                const bool = shipPlacement(player, get_dock[0], get_dock[1], [x, y]);
+                const bool = shipPlacement(player, get_dock[0], get_dock[1], [x, y], orientation);
                 if (bool == false) {return};
                 index++;
                 get_dock = dock[index];
@@ -50,7 +58,7 @@ function showBoard (row, column) {
         }
     }
 
-    main.append(div, orientButton());
+    main.append(div, button);
 }
 
 export {showBoard};
