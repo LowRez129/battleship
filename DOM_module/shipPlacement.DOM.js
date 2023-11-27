@@ -1,6 +1,6 @@
-export default function shipPlacement (player, x, y) {
+export default function shipPlacement (player, name, length, position, bool) {
     const div = document.querySelector(".board-container");
-    const coor = player.makeShip("destroyer", 2, [x, y]);
+    const coor = player.makeShip(name, length, position, bool);
     const div_children = Array.from(div.children);
     if (coor != false) {
         for (let index = 0; index < coor.length; index++) {
@@ -18,4 +18,5 @@ export default function shipPlacement (player, x, y) {
             }
         }
     }
+    return coor;
 }
