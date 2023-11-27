@@ -13,6 +13,7 @@ export default function shipPlacement (player, name, length, position, bool) {
                 if (id == axis) {
                     const div_child = document.getElementById(id);
                     div_child.style.backgroundColor = "green";
+                    div_child.setAttribute('taken', "true");
                     break;
                 }
             }
