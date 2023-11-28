@@ -6,9 +6,9 @@ function initialize_computer_AI (row, column) {
     const length = [5, 4, 3, 3, 2];
 
     for (let index = 0; index < ships.length; index++) {
-        let invalid = true;
-        while (invalid == true) {
-            invalid = computer.makeShip(ships[index], length[index], getRandomCoordinate(row, column), randomBool());
+        let valid = false;
+        while (valid == false) {
+            valid = computer.makeShip(ships[index], length[index], getRandomCoordinate(row, column), randomBool());
         }
     }
 

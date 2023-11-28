@@ -3,7 +3,7 @@ import { orientButton } from './orient_button.DOM.js';
 import shipPlacement from './shipPlacement.DOM.js';
 import './board.css';
 
-function showBoard (object, row, column) {
+function showBoard (object = gameboardFactory(), row, column) {
     const dock = [["carrier", 5], ["battleship", 4], ["submarine", 3], ["destroyer", 2]];
     const player = object;
     const container = document.createElement("div");
@@ -52,7 +52,6 @@ function showBoard (object, row, column) {
                 if (bool == false) {return};
                 index++;
                 get_dock = dock[index];
-                console.log(player.boardGet());
             });
             board_container.append(grid);
         }
