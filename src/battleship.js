@@ -11,4 +11,4 @@ const footer = document.createElement("footer");
 const player = gameboardFactory(size, size);
 
 body.append(header, main, footer);
-showBoard(size, size);
+main.append(showBoard(player, size, size));
