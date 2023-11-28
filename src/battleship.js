@@ -3,7 +3,7 @@ import { initialize_computer_AI } from "../battleship_module/computer_ai.js";
 import {showBoard} from '../DOM_module/board.DOM.js';
 import './battleship.css';
 
-const size = 5;
+const size = 10;
 const body = document.querySelector("body");
 const header = document.createElement("header");
 const main = document.createElement("main");

@@ -1,5 +1,6 @@
 :root {
-    --grid-size: 5;
+    --grid-x: 5;
+    --grid-y: 5;
     --grid-area: 8vh;
 }
 
@@ -15,8 +16,8 @@
 
 .board-container {
     display: grid;
-    grid-template-rows: repeat(var(--grid-size), var(--grid-area));
-    grid-template-columns: repeat(var(--grid-size), var(--grid-area));
+    grid-template-rows: repeat(var(--grid-x), var(--grid-area));
+    grid-template-columns: repeat(var(--grid-y), var(--grid-area));
     justify-content: center;
     gap: 1px;
 }

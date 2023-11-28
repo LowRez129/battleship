@@ -4,21 +4,24 @@ import shipPlacement from './shipPlacement.DOM.js';
 import './board.css';
 
 function showBoard (object, row, column) {
+    const dock = [["carrier", 5], ["battleship", 4], ["submarine", 3], ["destroyer", 2]];
     const player = object;
     const container = document.createElement("div");
     const board_container = document.createElement("div");
     const button = orientButton();
+    const board_css = document.querySelector(':root');
+    board_css.style.setProperty('--grid-x', `${row}`);
+    board_css.style.setProperty('--grid-y', `${column}`);
+
     container.classList.add("container");
     board_container.classList.add("board-container");
     
-    const dock = [["carrier", 5], ["battleship", 4], ["submarine", 3], ["destroyer", 2]];
     let index = 0;
     let get_dock = dock[index];
 
     for (let x = 0; x < (row); x++) {
         for (let y = 0; y < column; y++) {
             const grid = document.createElement("div");
-
             grid.classList.add('grid');
             grid.setAttribute('id', `${x}-${y}`);
             grid.setAttribute('taken', "false");
@@ -28,7 +31,7 @@ function showBoard (object, row, column) {
                     const horizontal = (button.value == "false") ? `${x + int}-${y}` : `${x}-${y + int}`;
                     const node = document.getElementById(horizontal);
                     if (node == null) { return };
-                    if (node.getAttribute('taken') != "false") {return};
+                    if (node.getAttribute('taken') != "false") {continue};
                     node.style.backgroundColor = "black";
                 }
             });
@@ -38,7 +41,7 @@ function showBoard (object, row, column) {
                     const horizontal = (button.value == "false") ? `${x + int}-${y}` : `${x}-${y + int}`;
                     const node = document.getElementById(horizontal);
                     if (node == null) { return };                 
-                    if (node.getAttribute('taken') != "false") {return};      
+                    if (node.getAttribute('taken') != "false") {continue};    
                     node.style.backgroundColor = "red";
                 }
             })
