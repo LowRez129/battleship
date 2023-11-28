@@ -1,0 +1,11 @@
+.ai-board-container {
+    --x: 5;
+    --y: 5;
+    --area: 8vh;
+
+    display: grid;
+    grid-template-rows: repeat(var(--x), var(--area));
+    grid-template-columns: repeat(var(--y), var(--area));
+    justify-content: center;
+    gap: 1px;
+}

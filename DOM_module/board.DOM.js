@@ -4,17 +4,16 @@ import shipPlacement from './shipPlacement.DOM.js';
 import './board.css';
 
 function showBoard (object = gameboardFactory(), row, column) {
-    const dock = [["carrier", 5], ["battleship", 4], ["submarine", 3], ["destroyer", 2]];
+    const dock = [["carrier", 5], ["battleship", 4], ["submarine", 3], ["cruiser", 3], ["destroyer", 2]];
     const player = object;
     const container = document.createElement("div");
     const board_container = document.createElement("div");
     const button = orientButton();
-    const board_css = document.querySelector(':root');
-    board_css.style.setProperty('--grid-x', `${row}`);
-    board_css.style.setProperty('--grid-y', `${column}`);
 
     container.classList.add("container");
     board_container.classList.add("board-container");
+    board_container.style.setProperty('--grid-x', `${row}`);
+    board_container.style.setProperty('--grid-y', `${column}`);
     
     let index = 0;
     let get_dock = dock[index];
@@ -46,11 +45,12 @@ function showBoard (object = gameboardFactory(), row, column) {
                 }
             })
             grid.addEventListener('click', () => {
-                if (grid.getAttribute('taken') != "false" || index == (dock.length)) {return};
+                if (grid.getAttribute('taken') != "false" || index == dock.length) {return};
                 const orientation = (button.value == "true") ? true : false;
                 const bool = shipPlacement(player, get_dock[0], get_dock[1], [x, y], orientation);
                 if (bool == false) {return};
                 index++;
+                if (index == dock.length) {return button.remove()};
                 get_dock = dock[index];
             });
             board_container.append(grid);
