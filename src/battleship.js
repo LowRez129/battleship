@@ -11,6 +11,9 @@ const main = document.createElement("main");
 const footer = document.createElement("footer");
 const player = gameboardFactory(size, size);
 const computer = initialize_computer_AI(size, size);
+const player_board = showBoard(player, size, size);
+const computer_board = aiBoard(computer, size, size, player);
+
 
 body.append(header, main, footer);
-main.append(showBoard(player, size, size), aiBoard(computer, size, size, player));
+main.append(player_board, computer_board);

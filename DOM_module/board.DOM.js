@@ -12,6 +12,8 @@ function showBoard (object = gameboardFactory(), row, column) {
 
     container.classList.add("container");
     board_container.classList.add("board-container");
+    board_container.setAttribute('id', 'board-container');
+    board_container.setAttribute('ready', 'false');
     board_container.style.setProperty('--grid-x', `${row}`);
     board_container.style.setProperty('--grid-y', `${column}`);
     
@@ -50,7 +52,11 @@ function showBoard (object = gameboardFactory(), row, column) {
                 const bool = shipPlacement(player, get_dock[0], get_dock[1], [x, y], orientation);
                 if (bool == false) {return};
                 index++;
-                if (index == dock.length) {return button.remove()};
+                if (index == dock.length) {
+                    board_container.setAttribute('ready', 'true');
+                    button.remove()
+                    return
+                };
                 get_dock = dock[index];
             });
             board_container.append(grid);
