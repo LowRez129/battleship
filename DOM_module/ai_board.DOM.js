@@ -5,6 +5,7 @@ import './ai_board.DOM.css';
 export default function aiBoard (object = initialize_computer_AI(), row, column, target = gameboardFactory()) {
     const div = document.createElement('div');
     const computer = object.getComputer();
+    let status = [];
 
     div.classList.add('ai-board-container');
     div.style.setProperty('--x', `${row}`);
@@ -14,8 +15,10 @@ export default function aiBoard (object = initialize_computer_AI(), row, column,
         for (let y = 0; y < column; y++) {
             const grid = document.createElement('div');
             const board = computer.boardGet()[x][y];
+            const dock = computer.shipGet();
 
             grid.addEventListener('click', () => {
+                if (status == [true, true, true, true, true].toString()) {return console.log(status)};
                 const board_container = document.getElementById('board-container');
                 if (board_container.getAttribute('ready') == "false") {return};
                 if (computer.boardGet()[x][y] == true) {return};
@@ -34,6 +37,12 @@ export default function aiBoard (object = initialize_computer_AI(), row, column,
                 player.style.backgroundColor = "yellow";
                 if (player_board != false) {player.style.backgroundColor = "red"};
                 target.receiveAttack(auto_attack);
+
+                const array = [];
+                for (let index = 0; index < dock.length; index++) {
+                    array.push(dock[index].isSunk());
+                }
+                status = array;
             });
 
             grid.style.backgroundColor = "black";
