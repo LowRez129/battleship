@@ -9,3 +9,9 @@
     justify-content: center;
     gap: 1px;
 }
+
+@media (max-width: 500px) {
+    .ai-board-container {
+        --area: 40px;
+    }
+}
