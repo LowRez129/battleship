@@ -4,7 +4,7 @@ import {showBoard} from '../DOM_module/board.DOM.js';
 import aiBoard from "../DOM_module/ai_board.DOM.js";
 import './battleship.css';
 
-const size = 6;
+const size = 10;
 const body = document.querySelector("body");
 const header = document.createElement("header");
 const main = document.createElement("main");
